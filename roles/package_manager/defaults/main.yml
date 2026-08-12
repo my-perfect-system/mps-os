@@ -1,15 +1,15 @@
 ---
 package_manager_upgrade: dist
 
-package_manager_auto_upgrades: true
+package_manager_enable_auto_upgrades: true
 
-package_manager_repos_main: true
-package_manager_repos_updates: true
-package_manager_repos_backports: true
-package_manager_repos_security: true
+package_manager_enable_repos_main: true
+package_manager_enable_repos_updates: true
+package_manager_enable_repos_backports: true
+package_manager_enable_repos_security: true
 
-package_manager_components_contrib: true
-package_manager_components_non_free: true
-package_manager_components_non_free_firmware: true
+package_manager_enable_components_contrib: true
+package_manager_enable_components_non_free: true
+package_manager_enable_components_non_free_firmware: true
 
-package_manager_deb_src: true
+package_manager_enable_deb_src: true

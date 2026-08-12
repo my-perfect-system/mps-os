@@ -15,4 +15,4 @@
 
 - name: PACKAGE_MANAGER - Automatic upgrades
   ansible.builtin.include_tasks: upgrades.yml
-  when: package_manager_auto_upgrades | bool
+  when: package_manager_enable_auto_upgrades | bool

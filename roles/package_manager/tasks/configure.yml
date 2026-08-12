@@ -3,10 +3,10 @@
   ansible.builtin.assert:
     that:
       - >-
-        package_manager_repos_main | bool
-        or package_manager_repos_updates | bool
-        or package_manager_repos_backports | bool
-        or package_manager_repos_security | bool
+        package_manager_enable_repos_main | bool
+        or package_manager_enable_repos_updates | bool
+        or package_manager_enable_repos_backports | bool
+        or package_manager_enable_repos_security | bool
     fail_msg: "At least one apt repository pocket must be enabled"
     quiet: true
 

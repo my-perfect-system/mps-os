@@ -3,31 +3,31 @@ argument_specs:
   main:
     short_description: Install essential CLI tools, grouped in configurable categories
     options:
-      system_tools_archives:
+      system_tools_enable_archives:
         type: bool
         default: true
         description: "Install archive tools (zip, unzip, bzip2, attr, dtrx)"
-      system_tools_build:
+      system_tools_enable_build:
         type: bool
         default: true
         description: "Install build tools (gcc, gdb, lldb, build-essential, check, flex, bison, automake)"
-      system_tools_fm:
+      system_tools_enable_fm:
         type: bool
         default: true
         description: "Install file management CLI tools (bat, eza, tree, ncdu, entr, ripgrep)"
-      system_tools_core:
+      system_tools_enable_core:
         type: bool
         default: true
         description: "Install core system packages (sudo, gnupg, rsyslog, jq, ...)"
-      system_tools_transfer:
+      system_tools_enable_transfer:
         type: bool
         default: true
         description: "Install transfer tools (curl, wget, rsync)"
-      system_tools_net:
+      system_tools_enable_net:
         type: bool
         default: true
         description: "Install networking tools (net-tools, bind9-dnsutils, tcpdump, nmap, ...)"
-      system_tools_stats:
+      system_tools_enable_stats:
         type: bool
         default: true
         description: "Install monitoring tools (htop, iftop, sysstat, fio)"

@@ -13,39 +13,39 @@ argument_specs:
           - full
           - dist
         description: "apt upgrade mode applied to all packages; 'no' skips the upgrade"
-      package_manager_auto_upgrades:
+      package_manager_enable_auto_upgrades:
         type: bool
         default: true
         description: "Configure unattended-upgrades for automatic package upgrades"
-      package_manager_repos_main:
+      package_manager_enable_repos_main:
         type: bool
         default: true
         description: "Enable the main apt repository pocket"
-      package_manager_repos_updates:
+      package_manager_enable_repos_updates:
         type: bool
         default: true
         description: "Enable the updates apt repository pocket"
-      package_manager_repos_backports:
+      package_manager_enable_repos_backports:
         type: bool
         default: true
         description: "Enable the backports apt repository pocket"
-      package_manager_repos_security:
+      package_manager_enable_repos_security:
         type: bool
         default: true
         description: "Enable the security apt repository pocket"
-      package_manager_components_contrib:
+      package_manager_enable_components_contrib:
         type: bool
         default: true
         description: "Enable the contrib component"
-      package_manager_components_non_free:
+      package_manager_enable_components_non_free:
         type: bool
         default: true
         description: "Enable the non-free component"
-      package_manager_components_non_free_firmware:
+      package_manager_enable_components_non_free_firmware:
         type: bool
         default: true
         description: "Enable the non-free-firmware component"
-      package_manager_deb_src:
+      package_manager_enable_deb_src:
         type: bool
         default: true
         description: "Include deb-src entries for all enabled repository pockets"
