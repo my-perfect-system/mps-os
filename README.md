@@ -17,9 +17,9 @@ See [`galaxy.yml`](galaxy.yml) for the canonical values.
 
 | Role | Purpose |
 |---|---|
-| `mps.os.package_manager` | Configure APT sources (4 pockets × components × deb-src), install base packages, configure unattended-upgrades. |
-| `mps.os.system_settings` | Configure locale, keyboard, console, and timezone. 4 sub-areas with own handlers. |
-| `mps.os.system_tools` | Apt-by-category groups for archives, build, file-manager, network, transfer, statistics tools. Per-area toggles. |
+| [`mps.os.package_manager`](roles/package_manager/README.md) | Configure APT sources (4 pockets × components × deb-src), install base packages, configure unattended-upgrades. |
+| [`mps.os.system_settings`](roles/system_settings/README.md) | Configure locale, keyboard, console, and timezone. 4 sub-areas with own handlers. |
+| [`mps.os.system_tools`](roles/system_tools/README.md) | Apt-by-category groups for archives, build, file-manager, network, transfer, statistics tools. Per-area toggles. |
 
 ## Installation
 
