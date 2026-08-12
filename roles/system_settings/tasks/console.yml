@@ -1,10 +1,10 @@
 ---
-- name: SYSTEM_SETTINGS - Install console-setup package
+- name: Install console-setup package
   ansible.builtin.package:
     name: console-setup
     state: present
 
-- name: SYSTEM_SETTINGS - Configure console
+- name: Write /etc/default/console-setup
   ansible.builtin.copy:
     dest: /etc/default/console-setup
     content: |
@@ -18,10 +18,10 @@
     group: root
     mode: "0644"
   notify:
-    - SYSTEM_SETTINGS - Reconfigure console-setup
-    - SYSTEM_SETTINGS - Restart console-setup
+    - Reconfigure console-setup
+    - Restart console-setup
 
-- name: SYSTEM_SETTINGS - Enable and start console-setup service
+- name: Enable and start console-setup service
   ansible.builtin.systemd:
     name: console-setup.service
     enabled: true

@@ -1,5 +1,5 @@
 ---
-- name: SYSTEM_TOOLS - Install monitoring tools
+- name: Install system statistics tools
   ansible.builtin.package:
     name:
       - htop

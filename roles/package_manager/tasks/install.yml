@@ -1,5 +1,5 @@
 ---
-- name: PACKAGE_MANAGER - Ensure apt utilities are installed
+- name: Install apt base packages
   ansible.builtin.package:
     name:
       - apt-utils

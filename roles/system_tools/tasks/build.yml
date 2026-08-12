@@ -1,5 +1,5 @@
 ---
-- name: SYSTEM_TOOLS - Install build tools
+- name: Install build toolchain packages
   ansible.builtin.package:
     name:
       - gcc

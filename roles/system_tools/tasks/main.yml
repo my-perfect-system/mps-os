@@ -1,5 +1,5 @@
 ---
-- name: SYSTEM_TOOLS - Assert supported OS
+- name: Assert Debian 13 target
   ansible.builtin.assert:
     that:
       - ansible_facts["distribution"] == "Debian"
@@ -7,30 +7,30 @@
     fail_msg: "This role supports Debian 13 (trixie) only"
     quiet: true
 
-- name: SYSTEM_TOOLS - Archives
+- name: Install archive tools
   ansible.builtin.include_tasks: archives.yml
   when: system_tools_enable_archives | bool
 
-- name: SYSTEM_TOOLS - Build tools
+- name: Install build toolchain
   ansible.builtin.include_tasks: build.yml
   when: system_tools_enable_build | bool
 
-- name: SYSTEM_TOOLS - File management tools
+- name: Install file manager tools
   ansible.builtin.include_tasks: fm.yml
   when: system_tools_enable_fm | bool
 
-- name: SYSTEM_TOOLS - Core system packages
+- name: Install core system utilities
   ansible.builtin.include_tasks: core.yml
   when: system_tools_enable_core | bool
 
-- name: SYSTEM_TOOLS - Transfer tools
+- name: Install transfer tools
   ansible.builtin.include_tasks: transfer.yml
   when: system_tools_enable_transfer | bool
 
-- name: SYSTEM_TOOLS - Net tools
+- name: Install network tools
   ansible.builtin.include_tasks: net.yml
   when: system_tools_enable_net | bool
 
-- name: SYSTEM_TOOLS - Stat tools
+- name: Install statistics tools
   ansible.builtin.include_tasks: stats.yml
   when: system_tools_enable_stats | bool

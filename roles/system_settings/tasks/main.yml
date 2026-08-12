@@ -1,5 +1,5 @@
 ---
-- name: SYSTEM_SETTINGS - Assert supported OS
+- name: Assert Debian 13 target
   ansible.builtin.assert:
     that:
       - ansible_facts["distribution"] == "Debian"
@@ -7,14 +7,14 @@
     fail_msg: "This role supports Debian 13 (trixie) only"
     quiet: true
 
-- name: SYSTEM_SETTINGS - Locale
+- name: Configure locale
   ansible.builtin.include_tasks: locale.yml
 
-- name: SYSTEM_SETTINGS - Keyboard
+- name: Configure keyboard
   ansible.builtin.include_tasks: keyboard.yml
 
-- name: SYSTEM_SETTINGS - Console
+- name: Configure console
   ansible.builtin.include_tasks: console.yml
 
-- name: SYSTEM_SETTINGS - Timezone and NTP
+- name: Configure time and timezone
   ansible.builtin.include_tasks: time.yml

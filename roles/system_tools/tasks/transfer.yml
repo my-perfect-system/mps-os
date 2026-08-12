@@ -1,5 +1,5 @@
 ---
-- name: SYSTEM_TOOLS - Install transfer tools
+- name: Install file transfer tools
   ansible.builtin.package:
     name:
       - curl

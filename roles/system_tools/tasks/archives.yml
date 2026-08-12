@@ -1,5 +1,5 @@
 ---
-- name: SYSTEM_TOOLS - Install archive tools
+- name: Install archive utilities
   ansible.builtin.package:
     name:
       - zip

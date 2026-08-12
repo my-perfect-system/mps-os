@@ -1,31 +1,31 @@
 ---
-- name: SYSTEM_SETTINGS - Get current timezone
+- name: Read current system timezone
   ansible.builtin.command: timedatectl show --property=Timezone --value
   register: system_settings_current_timezone
   changed_when: false
   check_mode: false
 
-- name: SYSTEM_SETTINGS - Set timezone
+- name: Set system timezone if changed
   ansible.builtin.command: timedatectl set-timezone {{ system_settings_timezone }}
   when: system_settings_current_timezone.stdout != system_settings_timezone
   changed_when: true
 
-- name: SYSTEM_SETTINGS - Install chrony
+- name: Install chrony package
   ansible.builtin.package:
     name: chrony
     state: present
 
-- name: SYSTEM_SETTINGS - Gather service facts
+- name: Gather service facts
   ansible.builtin.service_facts:
 
-- name: SYSTEM_SETTINGS - Disable and stop systemd-timesyncd
+- name: Disable systemd-timesyncd if present
   ansible.builtin.systemd:
     name: systemd-timesyncd.service
     enabled: false
     state: stopped
   when: "'systemd-timesyncd.service' in ansible_facts.services"
 
-- name: SYSTEM_SETTINGS - Enable and start chrony
+- name: Enable and start chrony service
   ansible.builtin.systemd:
     name: chrony.service
     enabled: true

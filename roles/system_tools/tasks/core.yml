@@ -1,5 +1,5 @@
 ---
-- name: SYSTEM_TOOLS - Install core system packages
+- name: Install core system utilities
   ansible.builtin.package:
     name:
       - sudo
@@ -15,12 +15,12 @@
       - psutils
       - firmware-linux
       - tasksel
-      - firmware-misc-nonfree 
-      - firmware-netxen 
+      - firmware-misc-nonfree
+      - firmware-netxen
       - firmware-realtek
     state: present
 
-- name: SYSTEM_TOOLS - Tasksel standard installation"
+- name: Run tasksel install standard
   ansible.builtin.shell: |
     tasksel install standard
   become: true
