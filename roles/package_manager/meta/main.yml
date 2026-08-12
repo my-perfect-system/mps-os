@@ -13,6 +13,6 @@ galaxy_info:
     - debian13
     - trixie
     - apt
-    - mps-debian
+    - odem-debian
 dependencies:
-  - role: mps.base.assert_debian13
+  - role: odem.base.assert_debian13

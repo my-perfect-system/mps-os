@@ -9,4 +9,4 @@
   tasks:
     - name: Converge completed successfully
       ansible.builtin.debug:
-        msg: "Smoke test for mps.os.system_settings passed (converge ran without error)."
+        msg: "Smoke test for odem.os.system_settings passed (converge ran without error)."

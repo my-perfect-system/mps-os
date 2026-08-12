@@ -1,10 +1,10 @@
 ---
-namespace: mps
+namespace: odem
 collection: os
 role: system_settings
 ---
 
-# `mps.os.system_settings`
+# `odem.os.system_settings`
 
 Configure locale, keyboard, console, and timezone
 
@@ -25,14 +25,14 @@ Configure locale, keyboard, console, and timezone
 
 ## Dependencies
 
-- `mps.base.assert_debian13`
+- `odem.base.assert_debian13`
 
 ## Example usage
 
 ```yaml
 - hosts: all
   roles:
-    - mps.os.system_settings
+    - odem.os.system_settings
 ```
 
 ## Role metadata

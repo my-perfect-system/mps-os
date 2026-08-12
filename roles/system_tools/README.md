@@ -1,10 +1,10 @@
 ---
-namespace: mps
+namespace: odem
 collection: os
 role: system_tools
 ---
 
-# `mps.os.system_tools`
+# `odem.os.system_tools`
 
 Install essential CLI tools, grouped in configurable categories
 
@@ -22,14 +22,14 @@ Install essential CLI tools, grouped in configurable categories
 
 ## Dependencies
 
-- `mps.base.assert_debian13`
+- `odem.base.assert_debian13`
 
 ## Example usage
 
 ```yaml
 - hosts: all
   roles:
-    - mps.os.system_tools
+    - odem.os.system_tools
 ```
 
 ## Role metadata

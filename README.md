@@ -1,4 +1,4 @@
-# `mps.os` Ansible Collection
+# `odem.os` Ansible Collection
 
 Operating system init for Debian 13 (trixie): package sources,
 unattended upgrades, locale / keyboard / console / timezone, core CLI
@@ -6,10 +6,10 @@ tooling.
 
 ## Galaxy metadata
 
-- **namespace**: `mps`
+- **namespace**: `odem`
 - **name**: `os`
 - **version**: `0.3.1`
-- **dependencies**: `mps.base`, `ansible.posix`
+- **dependencies**: `odem.base`, `ansible.posix`
 
 See [`galaxy.yml`](galaxy.yml) for the canonical values.
 
@@ -17,14 +17,14 @@ See [`galaxy.yml`](galaxy.yml) for the canonical values.
 
 | Role | Purpose |
 |---|---|
-| [`mps.os.package_manager`](roles/package_manager/README.md) | Configure APT sources (4 pockets × components × deb-src), install base packages, configure unattended-upgrades. |
-| [`mps.os.system_settings`](roles/system_settings/README.md) | Configure locale, keyboard, console, and timezone. 4 sub-areas with own handlers. |
-| [`mps.os.system_tools`](roles/system_tools/README.md) | Apt-by-category groups for archives, build, file-manager, network, transfer, statistics tools. Per-area toggles. |
+| [`odem.os.package_manager`](roles/package_manager/README.md) | Configure APT sources (4 pockets × components × deb-src), install base packages, configure unattended-upgrades. |
+| [`odem.os.system_settings`](roles/system_settings/README.md) | Configure locale, keyboard, console, and timezone. 4 sub-areas with own handlers. |
+| [`odem.os.system_tools`](roles/system_tools/README.md) | Apt-by-category groups for archives, build, file-manager, network, transfer, statistics tools. Per-area toggles. |
 
 ## Installation
 
 ```bash
-ansible-galaxy collection install mps.os
+ansible-galaxy collection install odem.os
 ```
 
 ## Usage
@@ -33,14 +33,14 @@ ansible-galaxy collection install mps.os
 - hosts: all
   become: true
   roles:
-    - mps.os.package_manager
-    - mps.os.system_settings
-    - mps.os.system_tools
+    - odem.os.package_manager
+    - odem.os.system_settings
+    - odem.os.system_tools
 ```
 
 ## Host prerequisites
 
-Every role in this collection declares `mps.base.assert_debian13` as a
+Every role in this collection declares `odem.base.assert_debian13` as a
 dependency, so the play fails fast if the target host isn't Debian 13.
 
 ## Documentation

@@ -16,6 +16,6 @@ galaxy_info:
     - timezone
     - keyboard
     - console
-    - mps-debian
+    - odem-debian
 dependencies:
-  - role: mps.base.assert_debian13
+  - role: odem.base.assert_debian13

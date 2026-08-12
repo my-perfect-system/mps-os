@@ -9,7 +9,7 @@
 
 - name: Configure unattended-upgrades origins pattern
   ansible.builtin.copy:
-    dest: /etc/apt/apt.conf.d/51mps-origins
+    dest: /etc/apt/apt.conf.d/51odem-origins
     content: |
       Unattended-Upgrade::Origins-Pattern {
               "origin=Debian,codename=${distro_codename}-updates";

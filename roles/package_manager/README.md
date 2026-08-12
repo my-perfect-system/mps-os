@@ -1,10 +1,10 @@
 ---
-namespace: mps
+namespace: odem
 collection: os
 role: package_manager
 ---
 
-# `mps.os.package_manager`
+# `odem.os.package_manager`
 
 Configure APT sources, upgrade packages, and set up unattended-upgrades
 
@@ -25,14 +25,14 @@ Configure APT sources, upgrade packages, and set up unattended-upgrades
 
 ## Dependencies
 
-- `mps.base.assert_debian13`
+- `odem.base.assert_debian13`
 
 ## Example usage
 
 ```yaml
 - hosts: all
   roles:
-    - mps.os.package_manager
+    - odem.os.package_manager
 ```
 
 ## Role metadata

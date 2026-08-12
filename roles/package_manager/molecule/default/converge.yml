@@ -12,4 +12,4 @@
     users_list:
       - name: molecule_user
   roles:
-    - role: mps.os.package_manager
+    - role: odem.os.package_manager
