@@ -1,0 +1,7 @@
+---
+# Fragment for the refactor pass.
+# Compiles into changelogs/changelog.yaml at release time.
+minor_changes:
+  - |
+    Dropped the byte-identical `Assert Debian 13 target` task block from `package_manager`, `system_settings`, `system_tools` task files (3 × 9 lines). Each role now declares `mps.base.assert_debian13` as a meta dependency in `roles/<role>/meta/main.yml`.
+
