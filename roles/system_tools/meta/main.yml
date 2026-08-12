@@ -14,4 +14,5 @@ galaxy_info:
     - trixie
     - essentials
     - mps-debian
-dependencies: []
+dependencies:
+  - role: mps.base.assert_debian13

@@ -1,12 +1,4 @@
 ---
-- name: Assert Debian 13 target
-  ansible.builtin.assert:
-    that:
-      - ansible_facts["distribution"] == "Debian"
-      - ansible_facts["distribution_major_version"] | int == 13
-    fail_msg: "This role supports Debian 13 (trixie) only"
-    quiet: true
-
 - name: Configure apt repositories
   ansible.builtin.include_tasks: configure.yml
 

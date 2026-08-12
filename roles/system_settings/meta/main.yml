@@ -17,4 +17,5 @@ galaxy_info:
     - keyboard
     - console
     - mps-debian
-dependencies: []
+dependencies:
+  - role: mps.base.assert_debian13
