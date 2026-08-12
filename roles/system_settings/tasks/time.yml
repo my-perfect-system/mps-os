@@ -18,13 +18,6 @@
 - name: Gather service facts
   ansible.builtin.service_facts:
 
-- name: Disable systemd-timesyncd if present
-  ansible.builtin.systemd:
-    name: systemd-timesyncd.service
-    enabled: false
-    state: stopped
-  when: "'systemd-timesyncd.service' in ansible_facts.services"
-
 - name: Enable and start chrony service
   ansible.builtin.systemd:
     name: chrony.service
