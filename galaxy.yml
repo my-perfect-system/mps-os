@@ -1,0 +1,32 @@
+---
+namespace: mps
+name: os
+version: 0.3.0
+readme: README.md
+authors:
+  - foo <bar@baz.com>
+description: Operating system initialization — package management, system settings, core tools
+license:
+  - GPL-3.0-or-later
+tags:
+  - linux
+  - os
+  - infrastructure
+  - mps
+repository: https://github.com/my-perfect-system/mps-os
+documentation: https://github.com/my-perfect-system/mps-os
+homepage: https://github.com/my-perfect-system/mps-os
+issues: https://github.com/my-perfect-system/mps-os/issues
+build_ignore:
+  - .git
+  - .github
+  - .gitignore
+  - .ansible-lint
+  - .yamllint
+  - .venv
+  - tests
+  - "*.tar.gz"
+  - .ansible
+dependencies:
+  mps.base: ">=0.1.0"
+  ansible.posix: ">=1.0.0"

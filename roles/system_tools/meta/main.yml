@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: foo <bar@baz.com>
+  description: "Install essential system packages"
+  min_ansible_version: "2.20.0"
+  license: GPL-3.0-or-later
+  platforms:
+    - name: Debian
+      versions:
+        - trixie
+  galaxy_tags:
+    - debian
+    - debian13
+    - trixie
+    - essentials
+    - mps-debian
+dependencies: []

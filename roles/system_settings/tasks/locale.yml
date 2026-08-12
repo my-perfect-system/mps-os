@@ -1,0 +1,25 @@
+---
+- name: SYSTEM_SETTINGS - Enable system locale in locale.gen
+  ansible.builtin.lineinfile:
+    path: /etc/locale.gen
+    regexp: "^# ?{{ system_settings_locale_name | regex_escape() }} UTF-8$"
+    line: "{{ system_settings_locale_name }} UTF-8"
+  notify: SYSTEM_SETTINGS - Run locale-gen
+
+- name: SYSTEM_SETTINGS - Set system locale file
+  ansible.builtin.copy:
+    dest: /etc/default/locale
+    content: |
+      LANG={{ system_settings_locale_name }}
+      LANGUAGE={{ system_settings_locale_name }}
+      LC_ALL={{ system_settings_locale_name }}
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: SYSTEM_SETTINGS - Set debconf selection for default locale
+  ansible.builtin.debconf:
+    name: locales
+    question: locales/default_environment_locale
+    value: "{{ system_settings_locale_name }}"
+    vtype: select

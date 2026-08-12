@@ -1,0 +1,17 @@
+---
+- name: SYSTEM_SETTINGS - Run locale-gen
+  ansible.builtin.command: locale-gen
+  changed_when: true
+
+- name: SYSTEM_SETTINGS - Reconfigure keyboard-configuration
+  ansible.builtin.command: dpkg-reconfigure -f noninteractive keyboard-configuration
+  changed_when: true
+
+- name: SYSTEM_SETTINGS - Reconfigure console-setup
+  ansible.builtin.command: dpkg-reconfigure -f noninteractive console-setup
+  changed_when: true
+
+- name: SYSTEM_SETTINGS - Restart console-setup
+  ansible.builtin.systemd:
+    name: console-setup.service
+    state: restarted

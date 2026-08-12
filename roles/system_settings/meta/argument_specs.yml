@@ -1,0 +1,45 @@
+---
+argument_specs:
+  main:
+    short_description: Configure locale, keyboard, console, and timezone
+    options:
+      system_settings_timezone:
+        type: str
+        default: "Europe/Berlin"
+        description: "System timezone (timedatectl)"
+      system_settings_locale_name:
+        type: str
+        default: "en_US.UTF-8"
+        description: "System locale (LANG/LANGUAGE/LC_ALL)"
+      system_settings_keyboard_model:
+        type: str
+        default: "pc105"
+        description: "Keyboard model (XKBMODEL)"
+      system_settings_keyboard_layout:
+        type: str
+        default: "de"
+        description: "Keyboard layout (XKBLAYOUT)"
+      system_settings_keyboard_variant:
+        type: str
+        default: "nodeadkeys"
+        description: "Keyboard variant (XKBVARIANT)"
+      system_settings_keyboard_options:
+        type: str
+        default: "compose:menu"
+        description: "Keyboard options (XKBOPTIONS)"
+      system_settings_console_charset:
+        type: str
+        default: "UTF-8"
+        description: "Console character map (CHARMAP)"
+      system_settings_console_codeset:
+        type: str
+        default: "Lat15"
+        description: "Console code set (CODESET)"
+      system_settings_console_fontface:
+        type: str
+        default: "Terminus"
+        description: "Console font face (FONTFACE)"
+      system_settings_console_fontsize:
+        type: str
+        default: "8x16"
+        description: "Console font size (FONTSIZE)"

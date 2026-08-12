@@ -1,0 +1,41 @@
+---
+- name: PACKAGE_MANAGER - Ensure unattended-upgrades packages are installed
+  ansible.builtin.package:
+    name:
+      - unattended-upgrades
+      - apt-listchanges
+    state: present
+    update_cache: true
+
+- name: PACKAGE_MANAGER - Enable stable-updates origin for unattended-upgrades
+  ansible.builtin.copy:
+    dest: /etc/apt/apt.conf.d/51mps-origins
+    content: |
+      Unattended-Upgrade::Origins-Pattern {
+              "origin=Debian,codename=${distro_codename}-updates";
+      };
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: PACKAGE_MANAGER - Configure automatic upgrades
+  ansible.builtin.copy:
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    content: |
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Unattended-Upgrade "1";
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: PACKAGE_MANAGER - Enable and start unattended-upgrades service
+  ansible.builtin.systemd:
+    name: unattended-upgrades.service
+    enabled: true
+    state: started
+
+- name: PACKAGE_MANAGER - Enable and start apt-daily-upgrade timer
+  ansible.builtin.systemd:
+    name: apt-daily-upgrade.timer
+    enabled: true
+    state: started

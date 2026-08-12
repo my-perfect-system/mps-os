@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: foo <bar@baz.com>
+  description: "Set up APT sources and unattended upgrades"
+  min_ansible_version: "2.20.0"
+  license: GPL-3.0-or-later
+  platforms:
+    - name: Debian
+      versions:
+        - trixie
+  galaxy_tags:
+    - debian
+    - debian13
+    - trixie
+    - apt
+    - mps-debian
+dependencies: []

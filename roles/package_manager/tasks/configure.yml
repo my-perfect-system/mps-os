@@ -1,0 +1,28 @@
+---
+- name: PACKAGE_MANAGER - Assert at least one repository is enabled
+  ansible.builtin.assert:
+    that:
+      - >-
+        package_manager_repos_main | bool
+        or package_manager_repos_updates | bool
+        or package_manager_repos_backports | bool
+        or package_manager_repos_security | bool
+    fail_msg: "At least one apt repository pocket must be enabled"
+    quiet: true
+
+- name: PACKAGE_MANAGER - Deploy sources.list
+  ansible.builtin.template:
+    src: apt/sources.list.j2
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: PACKAGE_MANAGER - Update apt cache
+  ansible.builtin.package:
+    update_cache: true
+
+- name: PACKAGE_MANAGER - Upgrade all packages
+  ansible.builtin.package:
+    upgrade: "{{ package_manager_upgrade }}"
+  when: package_manager_upgrade != "no"

@@ -1,0 +1,9 @@
+---
+- name: PACKAGE_MANAGER - Ensure apt utilities are installed
+  ansible.builtin.package:
+    name:
+      - apt-utils
+      - apt-transport-https
+      - ca-certificates
+      - apt-file
+    state: present

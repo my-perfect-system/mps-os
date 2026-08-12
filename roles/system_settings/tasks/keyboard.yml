@@ -1,0 +1,19 @@
+---
+- name: SYSTEM_SETTINGS - Install keyboard-configuration package
+  ansible.builtin.package:
+    name: keyboard-configuration
+    state: present
+
+- name: SYSTEM_SETTINGS - Configure keyboard
+  ansible.builtin.copy:
+    dest: /etc/default/keyboard
+    content: |
+      XKBMODEL="{{ system_settings_keyboard_model }}"
+      XKBLAYOUT="{{ system_settings_keyboard_layout }}"
+      XKBVARIANT="{{ system_settings_keyboard_variant }}"
+      XKBOPTIONS="{{ system_settings_keyboard_options }}"
+      BACKSPACE="guess"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: SYSTEM_SETTINGS - Reconfigure keyboard-configuration

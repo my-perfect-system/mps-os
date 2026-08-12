@@ -1,0 +1,28 @@
+{% set components = ['main'] -%}
+{% if package_manager_components_contrib | bool %}{% set components = components + ['contrib'] %}{% endif -%}
+{% if package_manager_components_non_free | bool %}{% set components = components + ['non-free'] %}{% endif -%}
+{% if package_manager_components_non_free_firmware | bool %}{% set components = components + ['non-free-firmware'] %}{% endif -%}
+{% if package_manager_repos_main | bool %}
+# Main
+deb https://deb.debian.org/debian/ {{ ansible_distribution_release }} {{ components | join(' ') }}
+{% if package_manager_deb_src | bool %}deb-src https://deb.debian.org/debian/ {{ ansible_distribution_release }} {{ components | join(' ') }}
+{% endif %}
+{% endif %}
+{% if package_manager_repos_updates | bool %}
+# Updates
+deb https://deb.debian.org/debian/ {{ ansible_distribution_release }}-updates {{ components | join(' ') }}
+{% if package_manager_deb_src | bool %}deb-src https://deb.debian.org/debian/ {{ ansible_distribution_release }}-updates {{ components | join(' ') }}
+{% endif %}
+{% endif %}
+{% if package_manager_repos_backports | bool %}
+# Backports
+deb https://deb.debian.org/debian/ {{ ansible_distribution_release }}-backports {{ components | join(' ') }}
+{% if package_manager_deb_src | bool %}deb-src https://deb.debian.org/debian/ {{ ansible_distribution_release }}-backports {{ components | join(' ') }}
+{% endif %}
+{% endif %}
+{% if package_manager_repos_security | bool %}
+# Security
+deb https://security.debian.org/debian-security {{ ansible_distribution_release }}-security {{ components | join(' ') }}
+{% if package_manager_deb_src | bool %}deb-src https://security.debian.org/debian-security {{ ansible_distribution_release }}-security {{ components | join(' ') }}
+{% endif %}
+{% endif %}

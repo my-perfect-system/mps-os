@@ -1,0 +1,26 @@
+---
+- name: SYSTEM_TOOLS - Install core system packages
+  ansible.builtin.package:
+    name:
+      - sudo
+      - gnupg
+      - lsb-release
+      - debconf
+      - debconf-utils
+      - psmisc
+      - rsyslog
+      - jq
+      - pciutils
+      - bsdmainutils
+      - psutils
+      - firmware-linux
+      - tasksel
+      - firmware-misc-nonfree 
+      - firmware-netxen 
+      - firmware-realtek
+    state: present
+
+- name: SYSTEM_TOOLS - Tasksel standard installation"
+  ansible.builtin.shell: |
+    tasksel install standard
+  become: true

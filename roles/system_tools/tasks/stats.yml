@@ -1,0 +1,9 @@
+---
+- name: SYSTEM_TOOLS - Install monitoring tools
+  ansible.builtin.package:
+    name:
+      - htop
+      - iftop
+      - sysstat
+      - fio
+    state: present

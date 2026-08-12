@@ -1,0 +1,8 @@
+---
+- name: OS common install
+  hosts: all
+  become: true
+  roles:
+    - role: mps.os.package_manager
+    - role: mps.os.system_settings
+    - role: mps.os.system_tools

@@ -1,0 +1,7 @@
+---
+release_summary: "Renamed from mps.debian to mps.os; restructured into standalone collection. Adds dependency on mps.base for shared conventions."
+breaking_changes:
+  - "Collection namespace changed from mps.debian to mps.os. All role FQCNs are now mps.os.<role>."
+minor_changes:
+  - "Dependency on mps.base added for shared conventions."
+  - "Repository URL points to standalone mps-os repo."

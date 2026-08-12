@@ -1,0 +1,18 @@
+---
+- name: PACKAGE_MANAGER - Assert supported OS
+  ansible.builtin.assert:
+    that:
+      - ansible_facts["distribution"] == "Debian"
+      - ansible_facts["distribution_major_version"] | int == 13
+    fail_msg: "This role supports Debian 13 (trixie) only"
+    quiet: true
+
+- name: PACKAGE_MANAGER - Configuration
+  ansible.builtin.include_tasks: configure.yml
+
+- name: PACKAGE_MANAGER - Installation
+  ansible.builtin.include_tasks: install.yml
+
+- name: PACKAGE_MANAGER - Automatic upgrades
+  ansible.builtin.include_tasks: upgrades.yml
+  when: package_manager_auto_upgrades | bool

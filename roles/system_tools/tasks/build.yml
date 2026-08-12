@@ -1,0 +1,13 @@
+---
+- name: SYSTEM_TOOLS - Install build tools
+  ansible.builtin.package:
+    name:
+      - gcc
+      - gdb
+      - lldb
+      - build-essential
+      - check
+      - flex
+      - bison
+      - automake
+    state: present

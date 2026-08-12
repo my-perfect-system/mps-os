@@ -1,0 +1,28 @@
+---
+- name: SYSTEM_SETTINGS - Install console-setup package
+  ansible.builtin.package:
+    name: console-setup
+    state: present
+
+- name: SYSTEM_SETTINGS - Configure console
+  ansible.builtin.copy:
+    dest: /etc/default/console-setup
+    content: |
+      ACTIVE_CONSOLES="/dev/tty[1-6]"
+      CHARMAP="{{ system_settings_console_charset }}"
+      CODESET="{{ system_settings_console_codeset }}"
+      FONTFACE="{{ system_settings_console_fontface }}"
+      FONTSIZE="{{ system_settings_console_fontsize }}"
+      VIDEOMODE=
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - SYSTEM_SETTINGS - Reconfigure console-setup
+    - SYSTEM_SETTINGS - Restart console-setup
+
+- name: SYSTEM_SETTINGS - Enable and start console-setup service
+  ansible.builtin.systemd:
+    name: console-setup.service
+    enabled: true
+    state: started

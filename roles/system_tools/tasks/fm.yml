@@ -1,0 +1,12 @@
+---
+- name: SYSTEM_TOOLS - Install file manager CLI tools
+  ansible.builtin.package:
+    name:
+      - bat
+      - eza
+      - tree
+      - ncdu
+      - entr
+      - ripgrep
+      - zoxide
+    state: present

@@ -1,0 +1,14 @@
+---
+system_settings_timezone: "Europe/Berlin"
+
+system_settings_locale_name: "en_US.UTF-8"
+
+system_settings_keyboard_model: "pc105"
+system_settings_keyboard_layout: "de"
+system_settings_keyboard_variant: "nodeadkeys"
+system_settings_keyboard_options: "compose:menu"
+
+system_settings_console_charset: "UTF-8"
+system_settings_console_codeset: "Lat15"
+system_settings_console_fontface: "Terminus"
+system_settings_console_fontsize: "8x16"
